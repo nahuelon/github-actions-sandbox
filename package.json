@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nahuelon/github-actions-sandbox/issues"
   },
-  "homepage": "https://github.com/nahuelon/github-actions-sandbox#readme"
+  "homepage": "https://github.com/nahuelon/github-actions-sandbox#readme",
+  "devDependencies": {
+    "@checkly/cli": "^0.4.8"
+  }
 }
