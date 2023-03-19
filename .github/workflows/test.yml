@@ -18,7 +18,7 @@ jobs:
           cache-dependency-path: package-lock.json
       - run: npm i
       - run: npx checkly --help
-      - run: cat output.out
+      - run: echo "$(cat output.out)"
         env:
           CHECKLY_ACCOUNT_ID: ${{ secrets.CHECKLY_ACCOUNT_ID }}
           CHECKLY_API_KEY: ${{ secrets.CHECKLY_API_KEY }}
