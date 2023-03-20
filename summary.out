@@ -1,0 +1,4 @@
+| Check Result :mag_right: | Filename :page_facing_up:   | Name :pencil:        | Location :earth_americas: | Duration :watch: |
+|--------------------------|-----------------------------|----------------------|---------------------------|------------------|
+| :white_check_mark: Pass  | __checks__/homepage.spec.ts | homepage.spec.ts     | eu-west-1                 | 9s               |
+| :x: Fail                 | __checks__/api.check.ts     | homepage-api-check-1 | eu-west-1                 | 2s               |
