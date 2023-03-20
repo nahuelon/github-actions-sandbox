@@ -1,2 +1,3 @@
-::error file=checks/api.check.ts,title=[ApiCheck] > First Homepage - fetch stats > [eu-west-1]
-::error file=checks/homepage.spec.ts,title=[BrowserCheck] > homepage.spec.ts > [eu-west-1]
+::error file=__checks__/api.check.ts,title=[ApiCheck] > First Homepage - fetch stats > [eu-west-1]:: Failed
+::error file=__checks__/homepage.spec.ts,title=[BrowserCheck] > homepage.spec.ts > [eu-west-1]:: Failed
+::notice title=🦝 Checkly Run Summary::  2 failed ─────────────────────────────────────────────────── %0A    [ApiCheck] > __checks__/api.check.ts > First Homepage - fetch stats > [eu-west-1] ─────────────────────────────────────────────────── %0A    [BrowserCheck] > __checks__/homepage.spec.ts > homepage.spec.ts > [eu-west-1]  %0A1 passed
