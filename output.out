@@ -1,3 +1,61 @@
-::error file=__checks__/api.check.ts,title=[ApiCheck] > Failing - fetch stats > [eu-west-1]
-::error file=__checks__/error.spec.ts,title=[BrowserCheck] > error.spec.ts > [eu-west-1]
+::error file=__checks__/api.check.ts,title=[ApiCheck] > Failing - fetch stats > [eu-west-1]::    ──HTTP Response───────────────────────────────────────────────────────────────────
+    Status Code: 404 Not Found
+    Headers:
+      server: Cowboy
+      connection: close
+      content-type: application/json; charset=utf-8
+      vary: origin
+      access-control-expose-headers: WWW-Authenticate,Server-Authorization,x-signed-dashboard,content-range
+      strict-transport-security: max-age=15768000; includeSubDomains; preload
+      x-frame-options: DENY
+      x-xss-protection: 1; mode=block
+      x-download-options: noopen
+      x-content-type-options: nosniff
+      cache-control: no-cache
+      content-length: 60
+      date: Tue, 21 Mar 2023 16:50:20 GMT
+      via: 1.1 vegur
+    Body:
+      {"statusCode":404,"error":"Not Found","message":"Not Found"}
+
+    ──Assertions──────────────────────────────────────────────────────────────────────
+    ✖ status code equals target "200". Received: 404.
+    ✖ JSON body property "$.apiCheckResults" is greater than target "0". Received: [].
+::error file=__checks__/error.spec.ts,title=[BrowserCheck] > error.spec.ts > [eu-west-1]::    ──Logs────────────────────────────────────────────────────────────────────────────
+    DEBUG, 1:50:20 PM, Starting job
+    DEBUG, 1:50:20 PM, Compiling environment variables
+    DEBUG, 1:50:20 PM, Creating runtime using version 2022.10
+    DEBUG, 1:50:20 PM, Running Playwright test script
+    INFO, 1:50:21 PM, Running 1 test using 1 worker
+    INFO, 1:50:21 PM, 
+    INFO, 1:50:22 PM, [1/1] [chromium] › ../../var/task/src/2022-10/node_modules/vm2/lib/bridge.js:479:11 › Checkly Homepage
+    INFO, 1:50:25 PM, 
+    INFO, 1:50:25 PM, 1) [chromium] › ../../var/task/src/2022-10/node_modules/vm2/lib/bridge.js:479:11 › Checkly Homepage 
+
+        Error: expect(received).toBe(expected) // Object.is equality
+
+        Expected: 400
+        Received: 200
+
+            at BaseHandler.apply (/var/task/src/2022-10/node_modules/vm2/lib/bridge.js:479:11)
+            at /tmp/cypxhalfihrqrq/__checks__/error.spec.ts:8:95
+
+        attachment #1: video (video/webm) --------------------------------------------------------------
+        artifacts/videos/checkly-homepage-1679417425437.webm
+        ------------------------------------------------------------------------------------------------
+
+        attachment #2: trace (application/zip) ---------------------------------------------------------
+        artifacts/script-checkly-homepage-chromium/trace.zip
+        Usage:
+
+            npx playwright show-trace artifacts/script-checkly-homepage-chromium/trace.zip
+
+        ------------------------------------------------------------------------------------------------
+    INFO, 1:50:25 PM, 
+    INFO, 1:50:25 PM, 
+    INFO, 1:50:25 PM, 
+    INFO, 1:50:25 PM, 1 failed
+        [chromium] › ../../var/task/src/2022-10/node_modules/vm2/lib/bridge.js:479:11 › Checkly Homepage
+    DEBUG, 1:50:25 PM, Run finished
+    DEBUG, 1:50:25 PM, Uploading log file
 ::notice title=🦝 Checkly Run Summary::  2 failed ─────────────────────────────────────────────────── %0A    [ApiCheck] > __checks__/api.check.ts > Failing - fetch stats > [eu-west-1] ─────────────────────────────────────────────────── %0A    [BrowserCheck] > __checks__/error.spec.ts > error.spec.ts > [eu-west-1]  %0A2 passed
