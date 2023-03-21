@@ -1,6 +1,6 @@
-| Check Result :mag_right: | Filename :page_facing_up: | Name :pencil: | Location :earth_americas: | Duration :watch: |
-| - | - | - | - | - |
-| :x: Fail | \_\_checks\_\_/api.check.ts | Failing - fetch stats | eu-west-1 | 42ms |
-| :white_check_mark: Pass | \_\_checks\_\_/api.check.ts | Homepage - fetch stats | eu-west-1 | 43ms |
-| :x: Fail | \_\_checks\_\_/error.spec.ts | error.spec.ts | eu-west-1 | 6s |
-| :white_check_mark: Pass | \_\_checks\_\_/homepage.spec.ts | homepage.spec.ts | eu-west-1 | 7s |
+| Check Result | Type | Filename | Name | Location | Duration |
+| - | - | - | - | - | - |
+| :x: Fail | BROWSER | \_\_checks\_\_/error.spec.ts | error.spec.ts | eu-west-1 | 6s |
+| :x: Fail | API | \_\_checks\_\_/api.check.ts | Failing - fetch stats | eu-west-1 | 63ms |
+| :white_check_mark: Pass | BROWSER | \_\_checks\_\_/homepage.spec.ts | homepage.spec.ts | eu-west-1 | 7s |
+| :white_check_mark: Pass | API | \_\_checks\_\_/api.check.ts | Homepage - fetch stats | eu-west-1 | 44ms |
