@@ -26,4 +26,5 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
-          message: ${{ steps.summary.outputs.summary }}
+          message: |
+            Summary ${{ steps.create_summary.outputs.summary }}
