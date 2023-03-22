@@ -9,17 +9,21 @@ jobs:
   test:
     name: test
     runs-on: ubuntu-latest
+    outputs:
+      summary: ${{ steps.create_summary.outputs.summary }}
     steps:
       - uses: actions/checkout@v3
-      - name: create_summary
-        id: summary
+      - id: create_summary
         run: |
           while read p; do echo "$p"; done < output.out
           cat summary.out > $GITHUB_STEP_SUMMARY
           SUMMARY=$(cat summary.out)
-          echo "::set-output name=content::$SUMMARY"
-      - name: post_comment_summary
+          SUMMARY="${SUMMARY//'%'/'%25'}"
+          SUMMARY="${SUMMARY//$'\n'/'%0A'}"
+          SUMMARY="${SUMMARY//$'\r'/'%0D'}"
+          echo "{summary}={$SUMMARY}" >> $GITHUB_OUTPUT
+      - id: post_comment_summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
-          message: ${{ steps.summary.outputs.content }}
+          message: ${{ steps.summary.outputs.summary }}
