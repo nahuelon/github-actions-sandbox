@@ -10,19 +10,14 @@ jobs:
     permissions: write-all
     name: test
     runs-on: ubuntu-latest
-    outputs:
-      summary: ${{ steps.create_summary.outputs.summary }}
     steps:
       - uses: actions/checkout@v3
       - id: create_summary
         run: |
-          while read p; do echo "$p"; done < output.out
-          cat summary.out > $GITHUB_STEP_SUMMARY
-          SUMMARY=$(cat summary.out)
-          echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
+          while read p; do echo "$p"; done < stdout.out
+          cat summary.md > $GITHUB_STEP_SUMMARY
       - id: post_comment_summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
-          message: |
-            Summary ${{ steps.create_summary.outputs.summary }}
+          path: summary.md
