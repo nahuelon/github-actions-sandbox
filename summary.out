@@ -1,6 +1,6 @@
-| Check Result | Type | Filename | Name | Location | Duration |
-| - | - | - | - | - | - |
-| :x: Fail | BROWSER | \_\_checks\_\_/error.spec.ts | error.spec.ts | eu-west-1 | 6s |
-| :x: Fail | API | \_\_checks\_\_/api.check.ts | Failing - fetch stats | eu-west-1 | 63ms |
-| :white_check_mark: Pass | BROWSER | \_\_checks\_\_/homepage.spec.ts | homepage.spec.ts | eu-west-1 | 7s |
-| :white_check_mark: Pass | API | \_\_checks\_\_/api.check.ts | Homepage - fetch stats | eu-west-1 | 44ms |
+| Check Result | Name | Type | Filename | Duration | Location |
+|:- |:- |:- |:- |:- |:- |
+| :green_circle: Pass | Public stats | API | `\_\_checks\_\_/api.check.ts` | 28ms | eu-west-1 |
+| :green_circle: Pass | homepage.spec.ts | BROWSER | `\_\_checks\_\_/homepage.spec.ts` | 7s | eu-west-1 |
+| :red_circle: Fail | Fetch error stats | API | `\_\_checks\_\_/api.check.ts` | 42ms | eu-west-1 |
+| :red_circle: Fail | failing.spec.ts | BROWSER | `\_\_checks\_\_/failing.spec.ts` | 6s | eu-west-1 |
