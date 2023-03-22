@@ -11,17 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "16"
-      #     cache: "npm"
-      #     cache-dependency-path: package-lock.json
-      # - run: npm i
-      # - run: npx playwright test --reporter github
-      - run: while read p; do echo "$p"; done < output.out
-      - run: cat summary.out > $GITHUB_STEP_SUMMARY
-      - run: echo "{summary}={$(cat summary.out)}" >> $GITHUB_ENV
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - name: create_summary
+        id: summary
+        run: |
+          while read p; do echo "$p"; done < output.out
+          cat summary.out > $GITHUB_STEP_SUMMARY
+          SUMMARY=$(cat summary.out)
+          echo "::set-output name=content::$SUMMARY"
+      - name: post_comment_summary
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
-          message: ${{ env.summary }}
+          message: ${{ steps.summary.outputs.content }}
