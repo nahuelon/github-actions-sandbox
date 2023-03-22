@@ -20,4 +20,6 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
           path: summary.md
