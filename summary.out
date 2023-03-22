@@ -1,6 +1,6 @@
 | Check Result | Name | Type | Filename | Duration | Location |
 |:- |:- |:- |:- |:- |:- |
-| :green_circle: Pass | Public stats | API | `\_\_checks\_\_/api.check.ts` | 28ms | eu-west-1 |
-| :green_circle: Pass | homepage.spec.ts | BROWSER | `\_\_checks\_\_/homepage.spec.ts` | 7s | eu-west-1 |
-| :red_circle: Fail | Fetch error stats | API | `\_\_checks\_\_/api.check.ts` | 42ms | eu-west-1 |
-| :red_circle: Fail | failing.spec.ts | BROWSER | `\_\_checks\_\_/failing.spec.ts` | 6s | eu-west-1 |
+| :red_circle: Fail | failing.spec.ts | BROWSER | `__checks__/failing.spec.ts` | 6s | eu-west-1 |
+| :red_circle: Fail | Fetch error stats | API | `__checks__/api.check.ts` | 63ms | eu-west-1 |
+| :green_circle: Pass | homepage.spec.ts | BROWSER | `__checks__/homepage.spec.ts` | 7s | eu-west-1 |
+| :green_circle: Pass | Public stats | API | `__checks__/api.check.ts` | 71ms | eu-west-1 |
