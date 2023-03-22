@@ -20,7 +20,8 @@ jobs:
       # - run: npx playwright test --reporter github
       - run: while read p; do echo "$p"; done < output.out
       - run: cat summary.out > $GITHUB_STEP_SUMMARY
+      - run: echo "summary=$(cat summary.out)" >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: 🦝 Checkly Run Summary
-          path: summary.out
+          message: ${{ steps.test.outputs.summary }}
