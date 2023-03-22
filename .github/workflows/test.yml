@@ -22,7 +22,8 @@ jobs:
           SUMMARY="${SUMMARY//'%'/'%25'}"
           SUMMARY="${SUMMARY//$'\n'/'%0A'}"
           SUMMARY="${SUMMARY//$'\r'/'%0D'}"
-          echo "{summary}={$SUMMARY}" >> $GITHUB_OUTPUT
+          echo 
+          echo "summary=$SUMMARY" >> $GITHUB_OUTPUT
       - id: post_comment_summary
         uses: marocchino/sticky-pull-request-comment@v2
         with:
