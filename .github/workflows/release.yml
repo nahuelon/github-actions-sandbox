@@ -1,0 +1,40 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  # Build package and increase version
+  build-version:
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      # Ensure that the README is published with the package
+      - name: Set new version from release tag
+        run: npm version ${{ github.event.release.tag_name }}
+      - name: Append changes to changelog
+        run: npx auto-changelog --latest-version ${{ github.event.release.tag_name }}
+      - name: Git push new package version
+        run: git push origin main --follow-tags
+      - name: Output version change after push
+        run: npm pkg get version
+  # Publish package to NPM
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build-version
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      # Ensure that the README is published with the package
+      - name: Publish NPM package
+        run: npm pkg get version
