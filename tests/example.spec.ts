@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
+  // FIX: add this fake bug
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
