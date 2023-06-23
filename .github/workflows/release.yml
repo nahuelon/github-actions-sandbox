@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: main
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
@@ -37,6 +39,8 @@ jobs:
     needs: build-version
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: main
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
