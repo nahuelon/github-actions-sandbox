@@ -24,13 +24,15 @@ jobs:
           git config user.name "Nahuel Alejandro Ramos"
           git config user.email "nahuel@checklyhq.com"
           npm --no-git-tag-version version ${{ github.event.release.tag_name }}
+          git add .
       - name: Append changes to changelog
         run: |
           npx auto-changelog --latest-version ${{ github.event.release.tag_name }}
-          git add CHANGELOG.md
-          git commit -m "feat: release CLI ${{ github.event.release.tag_name }}"
+          git add .
       - name: Git push new package version
-        run: git push origin main --follow-tags
+        run: |
+          git commit -m "feat: release CLI ${{ github.event.release.tag_name }}"
+          git push origin main --follow-tags
       - name: Output version change after push
         run: npm pkg get version
   # Publish package to NPM
