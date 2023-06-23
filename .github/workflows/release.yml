@@ -25,6 +25,7 @@ jobs:
         run: |
           npx auto-changelog --latest-version ${{ github.event.release.tag_name }}
           git add CHANGELOG.md
+          git commit -m "feat: release CLI ${{ github.event.release.tag_name }}"
       - name: Git push new package version
         run: git push origin main --follow-tags
       - name: Output version change after push
