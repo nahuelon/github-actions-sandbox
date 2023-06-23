@@ -6,6 +6,7 @@ jobs:
   # Build package and increase version
   build-version:
     permissions:
+      contents: write
       id-token: write
     runs-on: ubuntu-latest
     steps:
