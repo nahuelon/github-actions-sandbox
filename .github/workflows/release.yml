@@ -20,7 +20,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          npm version ${{ github.event.release.tag_name }}
+          npm --no-git-tag-version version ${{ github.event.release.tag_name }}
       - name: Append changes to changelog
         run: |
           npx auto-changelog --latest-version ${{ github.event.release.tag_name }}
